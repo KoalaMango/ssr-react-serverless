@@ -2462,9 +2462,138 @@ var global = arguments[3];
 var e=arguments[3],t=require("node-fetch");module.exports=function(e,s){return/^\/\//.test(e)&&(e="https:"+e),t.call(this,e,s)},e.fetch||(e.fetch=module.exports,e.Response=t.Response,e.Headers=t.Headers,e.Request=t.Request);
 },{"node-fetch":"node_modules/node-fetch/index.js"}],"Data.js":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=t(require("react")),r=t(require("isomorphic-fetch"));function t(e){return e&&e.__esModule?e:{default:e}}function u(){return(0,r.default)("https://www.cancerresearchuk.org/cruk-navigation/menu-mdd/json").then(function(e){return e.json()})}var n=u;exports.default=n;
-},{"react":"../node_modules/react/index.js","isomorphic-fetch":"../node_modules/isomorphic-fetch/fetch-npm-node.js"}],"MegaMenu.js":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=t(require("react"));function t(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var n in e)if(Object.prototype.hasOwnProperty.call(e,n)){var r=Object.defineProperty&&Object.getOwnPropertyDescriptor?Object.getOwnPropertyDescriptor(e,n):{};r.get||r.set?Object.defineProperty(t,n,r):t[n]=e[n]}return t.default=e,t}function n(e){return(n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function r(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function l(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function a(e,t,n){return t&&l(e.prototype,t),n&&l(e,n),e}function u(e,t){return!t||"object"!==n(t)&&"function"!=typeof t?f(e):t}function o(e){return(o=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function c(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&i(e,t)}function i(e,t){return(i=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function f(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}var m=function(t){function n(e){var t;return r(this,n),(t=u(this,o(n).call(this,e))).handleNav=t.handleNav.bind(f(f(t))),t.handleMenuItem=t.handleMenuItem.bind(f(f(t))),t.handleChange=t.handleChange.bind(f(f(t))),t}return c(n,e.Component),a(n,[{key:"handleMenuItem",value:function(t,n){var r=t.match(/(twitter\.com|facebook\.com|addthis\.com|ebay)/);return e.default.createElement("a",{role:"menuitem",href:t,className:r?"external":"internal",target:r?"_blank":"_self"},n)}},{key:"handleChange",value:function(e){document.querySelectorAll(".cr-menu__btn").forEach(function(e){return e.checked=!1}),document.getElementById(e.target.id).checked=!0}},{key:"handleNav",value:function(t){var n=this,r=Object.keys(t).filter(function(e){return void 0!==t[e]["#title"]}).sort(function(e,n){return t[e]["#original_link"].weight-t[n]["#original_link"].weight}).map(function(r){var l=t[r],a=e.default.createElement("div",{className:"cr-menu__block"},e.default.createElement("span",null),n.handleMenuItem(l["#href"],l["#title"])),u=Object.keys(l["#below"]).filter(function(e){return void 0!==l["#below"][e]["#title"]}).map(function(t){var r=l["#below"][t],a=Object.keys(r["#below"]).filter(function(e){return void 0!==r["#below"][e]["#title"]}).sort(function(e,t){return r["#below"][e]["#original_link"].weight-r["#below"][t]["#original_link"].weight}).map(function(t){var l=r["#below"][t];return e.default.createElement("li",{key:l["#title"]},n.handleMenuItem(l["#href"],l["#title"]))});return e.default.createElement("li",{key:r["#title"]},n.handleMenuItem(r["#href"],r["#title"]),e.default.createElement("ul",null,a))});return e.default.createElement("li",{key:l["#title"]},a,e.default.createElement("ul",{role:"menu"},u))});return e.default.createElement("nav",{className:"cr-menu__nav"},e.default.createElement("ul",{role:"menubar",tabIndex:"0"},r))}},{key:"render",value:function(){var t=this.props.menu;return e.default.createElement("div",{className:"cr-menu__wrapper"},e.default.createElement("hr",{className:"cr-menu__divider"}),e.default.createElement("div",{className:"cr-menu__inner"},e.default.createElement("div",{className:"cr-menu"},e.default.createElement("input",{type:"checkbox",id:"cr-menu__btn--menu",className:"cr-menu__btn",onClick:this.handleChange}),e.default.createElement("label",{htmlFor:"cr-menu__btn--menu",className:"cr-menu__label"},"Menu"),e.default.createElement("input",{type:"checkbox",id:"cr-menu__btn--search",className:"cr-menu__btn",onClick:this.handleChange}),e.default.createElement("label",{htmlFor:"cr-menu__btn--search",className:"cr-menu__label"},"Search"),e.default.createElement("div",{className:"cr-menu__main-menu"},this.handleNav(t)),e.default.createElement("div",{className:"cr-menu__search"}))))}}]),n}();exports.default=m;
-},{"react":"../node_modules/react/index.js"}],"server.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","isomorphic-fetch":"../node_modules/isomorphic-fetch/fetch-npm-node.js"}],"../node_modules/fbjs/lib/emptyFunction.js":[function(require,module,exports) {
+"use strict";function t(t){return function(){return t}}var n=function(){};n.thatReturns=t,n.thatReturnsFalse=t(!1),n.thatReturnsTrue=t(!0),n.thatReturnsNull=t(null),n.thatReturnsThis=function(){return this},n.thatReturnsArgument=function(t){return t},module.exports=n;
+},{}],"../node_modules/fbjs/lib/invariant.js":[function(require,module,exports) {
+"use strict";var r=function(r){};function e(e,n,i,o,a,t,f,s){if(r(n),!e){var u;if(void 0===n)u=new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else{var d=[i,o,a,t,f,s],c=0;(u=new Error(n.replace(/%s/g,function(){return d[c++]}))).name="Invariant Violation"}throw u.framesToPop=1,u}}r=function(r){if(void 0===r)throw new Error("invariant requires an error message argument")},module.exports=e;
+},{}],"../node_modules/fbjs/lib/warning.js":[function(require,module,exports) {
+"use strict";var r=require("./emptyFunction"),e=r,n=function(r){for(var e=arguments.length,n=Array(e>1?e-1:0),o=1;o<e;o++)n[o-1]=arguments[o];var t=0,i="Warning: "+r.replace(/%s/g,function(){return n[t++]});"undefined"!=typeof console&&console.error(i);try{throw new Error(i)}catch(a){}};e=function(r,e){if(void 0===e)throw new Error("`warning(condition, format, ...args)` requires a warning message argument");if(0!==e.indexOf("Failed Composite propType: ")&&!r){for(var o=arguments.length,t=Array(o>2?o-2:0),i=2;i<o;i++)t[i-2]=arguments[i];n.apply(void 0,[e].concat(t))}},module.exports=e;
+},{"./emptyFunction":"../node_modules/fbjs/lib/emptyFunction.js"}],"../node_modules/object-assign/index.js":[function(require,module,exports) {
+"use strict";var r=Object.getOwnPropertySymbols,t=Object.prototype.hasOwnProperty,e=Object.prototype.propertyIsEnumerable;function n(r){if(null==r)throw new TypeError("Object.assign cannot be called with null or undefined");return Object(r)}function o(){try{if(!Object.assign)return!1;var r=new String("abc");if(r[5]="de","5"===Object.getOwnPropertyNames(r)[0])return!1;for(var t={},e=0;e<10;e++)t["_"+String.fromCharCode(e)]=e;if("0123456789"!==Object.getOwnPropertyNames(t).map(function(r){return t[r]}).join(""))return!1;var n={};return"abcdefghijklmnopqrst".split("").forEach(function(r){n[r]=r}),"abcdefghijklmnopqrst"===Object.keys(Object.assign({},n)).join("")}catch(o){return!1}}module.exports=o()?Object.assign:function(o,c){for(var a,i,s=n(o),f=1;f<arguments.length;f++){for(var u in a=Object(arguments[f]))t.call(a,u)&&(s[u]=a[u]);if(r){i=r(a);for(var b=0;b<i.length;b++)e.call(a,i[b])&&(s[i[b]]=a[i[b]])}}return s};
+},{}],"../node_modules/prop-types/lib/ReactPropTypesSecret.js":[function(require,module,exports) {
+"use strict";var _="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";module.exports=_;
+},{}],"../node_modules/prop-types/checkPropTypes.js":[function(require,module,exports) {
+"use strict";var e=require("fbjs/lib/invariant"),r=require("fbjs/lib/warning"),t=require("./lib/ReactPropTypesSecret"),a={};function s(s,n,i,o,c){for(var u in s)if(s.hasOwnProperty(u)){var f;try{e("function"==typeof s[u],"%s: %s type `%s` is invalid; it must be a function, usually from the `prop-types` package, but received `%s`.",o||"React class",i,u,typeof s[u]),f=s[u](n,u,o,i,null,t)}catch(l){f=l}if(r(!f||f instanceof Error,"%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).",o||"React class",i,u,typeof f),f instanceof Error&&!(f.message in a)){a[f.message]=!0;var p=c?c():"";r(!1,"Failed %s type: %s%s",i,f.message,null!=p?p:"")}}}module.exports=s;
+},{"fbjs/lib/invariant":"../node_modules/fbjs/lib/invariant.js","fbjs/lib/warning":"../node_modules/fbjs/lib/warning.js","./lib/ReactPropTypesSecret":"../node_modules/prop-types/lib/ReactPropTypesSecret.js"}],"../node_modules/prop-types/factoryWithTypeCheckers.js":[function(require,module,exports) {
+"use strict";var e=require("fbjs/lib/emptyFunction"),n=require("fbjs/lib/invariant"),r=require("fbjs/lib/warning"),t=require("object-assign"),i=require("./lib/ReactPropTypesSecret"),o=require("./checkPropTypes");module.exports=function(a,u){var f="function"==typeof Symbol&&Symbol.iterator,l="@@iterator";var c="<<anonymous>>",s={array:v("array"),bool:v("boolean"),func:v("function"),number:v("number"),object:v("object"),string:v("string"),symbol:v("symbol"),any:d(e.thatReturnsNull),arrayOf:function(e){return d(function(n,r,t,o,a){if("function"!=typeof e)return new y("Property `"+a+"` of component `"+t+"` has invalid PropType notation inside arrayOf.");var u=n[r];if(!Array.isArray(u)){var f=m(u);return new y("Invalid "+o+" `"+a+"` of type `"+f+"` supplied to `"+t+"`, expected an array.")}for(var l=0;l<u.length;l++){var c=e(u,l,t,o,a+"["+l+"]",i);if(c instanceof Error)return c}return null})},element:function(){return d(function(e,n,r,t,i){var o=e[n];if(!a(o)){var u=m(o);return new y("Invalid "+t+" `"+i+"` of type `"+u+"` supplied to `"+r+"`, expected a single ReactElement.")}return null})}(),instanceOf:function(e){return d(function(n,r,t,i,o){if(!(n[r]instanceof e)){var a=e.name||c,u=function(e){if(!e.constructor||!e.constructor.name)return c;return e.constructor.name}(n[r]);return new y("Invalid "+i+" `"+o+"` of type `"+u+"` supplied to `"+t+"`, expected instance of `"+a+"`.")}return null})},node:function(){return d(function(e,n,r,t,i){if(!b(e[n]))return new y("Invalid "+t+" `"+i+"` supplied to `"+r+"`, expected a ReactNode.");return null})}(),objectOf:function(e){return d(function(n,r,t,o,a){if("function"!=typeof e)return new y("Property `"+a+"` of component `"+t+"` has invalid PropType notation inside objectOf.");var u=n[r],f=m(u);if("object"!==f)return new y("Invalid "+o+" `"+a+"` of type `"+f+"` supplied to `"+t+"`, expected an object.");for(var l in u)if(u.hasOwnProperty(l)){var c=e(u,l,t,o,a+"."+l,i);if(c instanceof Error)return c}return null})},oneOf:function(n){if(!Array.isArray(n))return r(!1,"Invalid argument supplied to oneOf, expected an instance of array."),e.thatReturnsNull;return d(function(e,r,t,i,o){for(var a=e[r],u=0;u<n.length;u++)if(p(a,n[u]))return null;var f=JSON.stringify(n);return new y("Invalid "+i+" `"+o+"` of value `"+a+"` supplied to `"+t+"`, expected one of "+f+".")})},oneOfType:function(n){if(!Array.isArray(n))return r(!1,"Invalid argument supplied to oneOfType, expected an instance of array."),e.thatReturnsNull;for(var t=0;t<n.length;t++){var o=n[t];if("function"!=typeof o)return r(!1,"Invalid argument supplied to oneOfType. Expected an array of check functions, but received %s at index %s.",g(o),t),e.thatReturnsNull}return d(function(e,r,t,o,a){for(var u=0;u<n.length;u++){var f=n[u];if(null==f(e,r,t,o,a,i))return null}return new y("Invalid "+o+" `"+a+"` supplied to `"+t+"`.")})},shape:function(e){return d(function(n,r,t,o,a){var u=n[r],f=m(u);if("object"!==f)return new y("Invalid "+o+" `"+a+"` of type `"+f+"` supplied to `"+t+"`, expected `object`.");for(var l in e){var c=e[l];if(c){var s=c(u,l,t,o,a+"."+l,i);if(s)return s}}return null})},exact:function(e){return d(function(n,r,o,a,u){var f=n[r],l=m(f);if("object"!==l)return new y("Invalid "+a+" `"+u+"` of type `"+l+"` supplied to `"+o+"`, expected `object`.");var c=t({},n[r],e);for(var s in c){var p=e[s];if(!p)return new y("Invalid "+a+" `"+u+"` key `"+s+"` supplied to `"+o+"`.\nBad object: "+JSON.stringify(n[r],null,"  ")+"\nValid keys: "+JSON.stringify(Object.keys(e),null,"  "));var d=p(f,s,o,a,u+"."+s,i);if(d)return d}return null})}};function p(e,n){return e===n?0!==e||1/e==1/n:e!=e&&n!=n}function y(e){this.message=e,this.stack=""}function d(e){var t={},o=0;function a(a,f,l,s,p,d,v){if(s=s||c,d=d||l,v!==i)if(u)n(!1,"Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types");else if("undefined"!=typeof console){var b=s+":"+l;!t[b]&&o<3&&(r(!1,"You are manually calling a React.PropTypes validation function for the `%s` prop on `%s`. This is deprecated and will throw in the standalone `prop-types` package. You may be seeing this warning due to a third-party PropTypes library. See https://fb.me/react-warning-dont-call-proptypes for details.",d,s),t[b]=!0,o++)}return null==f[l]?a?null===f[l]?new y("The "+p+" `"+d+"` is marked as required in `"+s+"`, but its value is `null`."):new y("The "+p+" `"+d+"` is marked as required in `"+s+"`, but its value is `undefined`."):null:e(f,l,s,p,d)}var f=a.bind(null,!1);return f.isRequired=a.bind(null,!0),f}function v(e){return d(function(n,r,t,i,o,a){var u=n[r];return m(u)!==e?new y("Invalid "+i+" `"+o+"` of type `"+h(u)+"` supplied to `"+t+"`, expected `"+e+"`."):null})}function b(e){switch(typeof e){case"number":case"string":case"undefined":return!0;case"boolean":return!e;case"object":if(Array.isArray(e))return e.every(b);if(null===e||a(e))return!0;var n=function(e){var n=e&&(f&&e[f]||e[l]);if("function"==typeof n)return n}(e);if(!n)return!1;var r,t=n.call(e);if(n!==e.entries){for(;!(r=t.next()).done;)if(!b(r.value))return!1}else for(;!(r=t.next()).done;){var i=r.value;if(i&&!b(i[1]))return!1}return!0;default:return!1}}function m(e){var n=typeof e;return Array.isArray(e)?"array":e instanceof RegExp?"object":function(e,n){return"symbol"===e||"Symbol"===n["@@toStringTag"]||"function"==typeof Symbol&&n instanceof Symbol}(n,e)?"symbol":n}function h(e){if(null==e)return""+e;var n=m(e);if("object"===n){if(e instanceof Date)return"date";if(e instanceof RegExp)return"regexp"}return n}function g(e){var n=h(e);switch(n){case"array":case"object":return"an "+n;case"boolean":case"date":case"regexp":return"a "+n;default:return n}}return y.prototype=Error.prototype,s.checkPropTypes=o,s.PropTypes=s,s};
+},{"fbjs/lib/emptyFunction":"../node_modules/fbjs/lib/emptyFunction.js","fbjs/lib/invariant":"../node_modules/fbjs/lib/invariant.js","fbjs/lib/warning":"../node_modules/fbjs/lib/warning.js","object-assign":"../node_modules/object-assign/index.js","./lib/ReactPropTypesSecret":"../node_modules/prop-types/lib/ReactPropTypesSecret.js","./checkPropTypes":"../node_modules/prop-types/checkPropTypes.js"}],"../node_modules/prop-types/index.js":[function(require,module,exports) {
+var e="function"==typeof Symbol&&Symbol.for&&Symbol.for("react.element")||60103,o=function(o){return"object"==typeof o&&null!==o&&o.$$typeof===e},t=!0;module.exports=require("./factoryWithTypeCheckers")(o,t);
+},{"./factoryWithTypeCheckers":"../node_modules/prop-types/factoryWithTypeCheckers.js"}],"Search.js":[function(require,module,exports) {
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=n(require("react")),t=r(require("prop-types"));function r(e){return e&&e.__esModule?e:{default:e}}function n(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var r in e)if(Object.prototype.hasOwnProperty.call(e,r)){var n=Object.defineProperty&&Object.getOwnPropertyDescriptor?Object.getOwnPropertyDescriptor(e,r):{};n.get||n.set?Object.defineProperty(t,r,n):t[r]=e[r]}return t.default=e,t}function o(e){return(o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function u(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function a(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function c(e,t,r){return t&&a(e.prototype,t),r&&a(e,r),e}function s(e,t){return!t||"object"!==o(t)&&"function"!=typeof t?i(e):t}function i(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function l(e){return(l=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function f(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&p(e,t)}function p(e,t){return(p=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}var b=function(t){function r(e){var t;return u(this,r),(t=s(this,l(r).call(this,e))).state={focused:!1},t}return f(r,e.Component),c(r,[{key:"onFocus",value:function(){this.setState({focused:!0})}},{key:"onBlur",value:function(){this.setState({focused:!1})}},{key:"render",value:function(){return e.default.createElement("form",{role:"search",onSubmit:this.props.submitCallback||function(e){return e.preventDefault()},className:"cr-search-input".concat(this.state.focused?" cr-search-input--focused":""),action:this.props.searchUrl},e.default.createElement("label",{htmlFor:this.props.uniqueId,className:"cr-search-input__label"},this.props.label),e.default.createElement("input",{type:"search",name:this.props.name,id:this.props.uniqueId,onChange:this.props.changeCallback,className:"cr-search-input__input",placeholder:this.props.label,autoComplete:"off",autoCorrect:"off",onBlur:this.onBlur,onFocus:this.onFocus}),e.default.createElement("button",{type:"submit",className:"cr-search-input__button","aria-label":"Submit your search"},"Go"))}}]),r}();b.defaultProps={label:"Search",searchUrl:"https://find.cancerresearchuk.org/",name:"xss-q"},b.propTypes={changeCallback:t.default.func,label:t.default.string,name:t.default.string,submitCallback:t.default.func,uniqueId:t.default.string,searchUrl:t.default.string};var h=b;exports.default=h;
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js"}],"src/MegaMenu.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _Search = _interopRequireDefault(require("./Search"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+class MegaMenu extends _react.Component {
+  constructor(props) {
+    super(props);
+    this.handleNav = this.handleNav.bind(this);
+    this.handleMenuItem = this.handleMenuItem.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleMenuItem(href, title) {
+    const regex = /(twitter\.com|facebook\.com|addthis\.com|ebay)/;
+    const found = href.match(regex);
+    return _react.default.createElement("a", {
+      role: "menuitem",
+      href: href,
+      className: !found ? 'internal' : 'external',
+      target: !found ? '_self' : '_blank'
+    }, title);
+  }
+
+  handleChange(e) {
+    document.querySelectorAll('.cr-menu__btn').forEach(el => el.checked = false);
+    document.getElementById(e.target.id).checked = true;
+  } // @TODO: Refactor and extract checkbox to separate reusable component
+
+
+  handleNav(data) {
+    const menuItems = Object.keys(data).filter(obj => data[obj]['#title'] !== undefined).sort((a, b) => data[a]['#original_link'].weight - data[b]['#original_link'].weight).map(obj => {
+      const level1 = data[obj];
+
+      const menuBar = _react.default.createElement("div", {
+        className: "cr-menu__block"
+      }, _react.default.createElement("span", null), this.handleMenuItem(level1['#href'], level1['#title']));
+
+      const menus = Object.keys(level1['#below']).filter(obj2 => level1['#below'][obj2]['#title'] !== undefined).map(obj2 => {
+        const level2 = level1['#below'][obj2];
+        const menuItem = Object.keys(level2['#below']).filter(obj3 => level2['#below'][obj3]['#title'] !== undefined).sort((a, b) => level2['#below'][a]['#original_link'].weight - level2['#below'][b]['#original_link'].weight).map(obj3 => {
+          const level3 = level2['#below'][obj3];
+          return _react.default.createElement("li", {
+            key: level3['#title']
+          }, this.handleMenuItem(level3['#href'], level3['#title']));
+        });
+        return _react.default.createElement("li", {
+          key: level2['#title']
+        }, this.handleMenuItem(level2['#href'], level2['#title']), _react.default.createElement("ul", null, menuItem));
+      });
+      return _react.default.createElement("li", {
+        key: level1['#title']
+      }, menuBar, _react.default.createElement("ul", {
+        role: "menu"
+      }, menus));
+    });
+    return _react.default.createElement("nav", {
+      className: "cr-menu__nav"
+    }, _react.default.createElement("ul", {
+      role: "menubar",
+      tabIndex: "0"
+    }, menuItems));
+  }
+
+  render() {
+    const {
+      menu
+    } = this.props;
+    return _react.default.createElement("div", {
+      className: "cr-menu__wrapper"
+    }, _react.default.createElement("hr", {
+      className: "cr-menu__divider"
+    }), _react.default.createElement("div", {
+      className: "cr-menu__inner"
+    }, _react.default.createElement("div", {
+      className: "cr-menu"
+    }, _react.default.createElement("input", {
+      type: "checkbox",
+      id: "cr-menu__btn--menu",
+      className: "cr-menu__btn",
+      onClick: this.handleChange
+    }), _react.default.createElement("label", {
+      htmlFor: "cr-menu__btn--menu",
+      className: "cr-menu__label"
+    }, "Menu"), _react.default.createElement("input", {
+      type: "checkbox",
+      id: "cr-menu__btn--search",
+      className: "cr-menu__btn",
+      onClick: this.handleChange
+    }), _react.default.createElement("label", {
+      htmlFor: "cr-menu__btn--search",
+      className: "cr-menu__label"
+    }, "Search"), _react.default.createElement("div", {
+      className: "cr-menu__main-menu"
+    }, this.handleNav(menu)), _react.default.createElement("div", {
+      className: "cr-menu__search"
+    }, _react.default.createElement(_Search.default, null)))));
+  }
+
+}
+
+exports.default = MegaMenu;
+},{"./Search":"Search.js"}],"server.js":[function(require,module,exports) {
 "use strict";
 
 var _bodyParser = _interopRequireDefault(require("body-parser"));
@@ -2519,4 +2648,4 @@ app.get("/", (req, res) => {
   });
 });
 module.exports.ssr = (0, _serverlessHttp.default)(app);
-},{"./src/Data":"Data.js","./src/MegaMenu":"MegaMenu.js"}]},{},["server.js"], null)
+},{"./src/Data":"Data.js","./src/MegaMenu":"src/MegaMenu.js"}]},{},["server.js"], null)

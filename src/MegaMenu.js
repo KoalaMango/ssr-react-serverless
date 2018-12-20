@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import Search from './Search';
+import Search from './Search';
 
 export default class MegaMenu extends Component {
   constructor(props) {
@@ -107,6 +107,7 @@ export default class MegaMenu extends Component {
               {this.handleNav(menu)}
             </div>
             <div className="cr-menu__search">
+              <Search />
             </div>
           </div>
         </div>
