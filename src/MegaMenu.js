@@ -17,8 +17,8 @@ export default class MegaMenu extends Component {
       <a
         role='menuitem'
         href={href}
-        className={!found || 'external'}
-        target={!found || '_blank'}
+        className={!found ? 'internal' : 'external'}
+        target={!found ? '_self' : '_blank'}
       >
         {title}
       </a>

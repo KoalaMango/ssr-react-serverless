@@ -1,10 +1,9 @@
 import React from "react";
-import "./app.css";
 import { hydrate } from "react-dom";
-
-import App from "./App";
+import Data from "./Data";
 import MegaMenu from "./MegaMenu";
-import Data from "./users";
+
+import "./App.css";
 
 Data().then(menuData => {
   hydrate(<MegaMenu menu={menuData} />, document.getElementById("root"));

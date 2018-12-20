@@ -184,8 +184,8 @@ exports.default = App;
             return _react.default.createElement("a", {
               role: "menuitem",
               href: href,
-              className: !found || 'external',
-              target: !found || '_blank'
+              className: !found ? 'internal' : 'external',
+              target: !found ? '_self' : '_blank'
             }, title);
           }
         }, {
@@ -339,9 +339,9 @@ var _MegaMenu = require("./src/MegaMenu");
 
 var _MegaMenu2 = _interopRequireDefault(_MegaMenu);
 
-var _users = require("./src/users");
+var _data = require("./src/Data");
 
-var _users2 = _interopRequireDefault(_users);
+var _data2 = _interopRequireDefault(_data);
 
 var _fs = require("fs");
 
@@ -358,17 +358,17 @@ const app = (0, _express2.default)();
 app.use((0, _cors2.default)());
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
-app.use(_express2.default.static(_path2.default.resolve(__dirname, "./Browser")));
+app.use(_express2.default.static(_path2.default.resolve(__dirname, "./build")));
 
 const markup = _fs2.default.readFileSync(__dirname + "/index.html", "utf8");
 
 app.get("**", (req, res) => {
-  (0, _users2.default)().then(menuData => {
+  (0, _data2.default)().then(menuData => {
     const html = (0, _server.renderToString)(_react2.default.createElement(_MegaMenu2.default, { menu: menuData }));
     res.send(markup.replace("<!--App-->", html));
   });
 });
 
 module.exports.ssr = (0, _serverlessHttp2.default)(app);
-},{"./src/App":5,"./src/users":6, "./src/MegaMenu":7}]},{},[1], null)
+},{"./src/App":5,"./src/Data":6, "./src/MegaMenu":7}]},{},[1], null)
 //# sourceMappingURL=handler.map

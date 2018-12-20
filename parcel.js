@@ -2,7 +2,7 @@ const Bundler = require("parcel-bundler");
 const Path = require("path");
 
 // Entrypoint file location
-const server = Path.join(__dirname, "app.js");
+const server = Path.join(__dirname, "server.js");
 
 // Bundler options
 const serverOpt = {
@@ -14,7 +14,7 @@ const serverOpt = {
   minify: false, // Minify files, enabled if process.env.NODE_ENV === 'production'
   target: "node", // browser/node/electron, defaults to browser
   logLevel: 3, // 3 = log everything, 2 = log warnings & errors, 1 = log errors
-  sourceMaps: true, // Enable or disable sourcemaps, defaults to enabled (not supported in minified builds yet)
+  sourceMaps: false, // Enable or disable sourcemaps, defaults to enabled (not supported in minified builds yet)
   detailedReport: true // Prints a detailed report of the bundles, assets, filesizes and times, defaults to false, reports are only printed if watch is disabled
 };
 
@@ -23,17 +23,17 @@ const browser = Path.join(__dirname, "./src/index.js");
 
 // Bundler options
 const browserOpt = {
-  outDir: "./Browser",
+  outDir: "./build",
   outFile: "bundle.js",
   publicUrl: "./",
   watch: true,
   cacheDir: ".cache",
-  minify: false,
+  minify: true,
   target: "browser",
   https: false,
   logLevel: 3,
   hmrPort: 0,
-  sourceMaps: true,
+  sourceMaps: false,
   hmrHostname: "",
   detailedReport: false
 };

@@ -4,7 +4,7 @@
   "description": "ssr react using serverless",
   "main": "index.js",
   "scripts": {
-    "bundle": "rimraf Browser && node parcel.js",
+    "bundle": "rimraf build && node parcel.js",
     "start": "sls offline start",
     "deploy": "sls deploy"
   },
