@@ -20,7 +20,17 @@ const markup = fs.readFileSync(__dirname + "/index.html",
   "utf8"
 );
 
-app.get("**", (req, res) => {
+app.get("/api", (req, res) => {
+  Data().then(menuData => {
+    const html = renderToString(<MegaMenu menu={menuData} />);
+    res.json({
+      pattern: 'Mega Menu',
+      html_markup: html
+    });
+  });
+});
+
+app.get("/", (req, res) => {
   Data().then(menuData => {
     const html = renderToString(<MegaMenu menu={menuData} />);
     res.send(markup.replace("<!--App-->", html));
