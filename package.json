@@ -43,7 +43,7 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "parcel-bundler": "^1.11.0",
+    "parcel-bundler": "1.10.3",
     "rimraf": "^2.6.2",
     "sass": "^1.15.2",
     "serverless-offline": "^3.25.4"
@@ -52,7 +52,9 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",
+    "fs": "^0.0.1-security",
     "isomorphic-fetch": "^2.2.1",
+    "path": "^0.12.7",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-router-dom": "^4.2.2",
