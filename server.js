@@ -6,8 +6,11 @@ import path from "path";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import serverless from "serverless-http";
+import { createPattern } from "./processor/tprocessor";
 import Data from "./src/Data";
 import MegaMenu from "./src/MegaMenu";
+import PatternBuilder from "./src/PatternBuilder/PatternBuilder";
+import PatternBuilderSubmitted from "./src/PatternBuilder/PatternBuilderSubmitted";
 
 const app = express();
 
@@ -35,6 +38,17 @@ app.get("/", (req, res) => {
     const html = renderToString(<MegaMenu menu={menuData} />);
     res.send(markup.replace("<!--App-->", html));
   });
+});
+
+app.get("/pattern-builder", (req, res) => {
+  const html = renderToString(<PatternBuilder />);
+  res.send(markup.replace("<!--App-->", html));
+});
+
+app.post("/pattern-submitted", (req, res) => {
+  createPattern(req.body);
+  const html = renderToString(<PatternBuilderSubmitted />);
+  res.send(markup.replace("<!--App-->", html));
 });
 
 module.exports.ssr = serverless(app);
