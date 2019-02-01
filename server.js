@@ -7,6 +7,7 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import serverless from "serverless-http";
 import { createPattern } from "./processor/tprocessor";
+import { handleSubmission } from "./services/github";
 import Data from "./src/Data";
 import MegaMenu from "./src/MegaMenu";
 import PatternBuilder from "./src/PatternBuilder/PatternBuilder";
@@ -38,6 +39,7 @@ app.get("/", (req, res) => {
     const html = renderToString(<MegaMenu menu={menuData} />);
     res.send(markup.replace("<!--App-->", html));
   });
+  handleSubmission({ name: 'Somes NAMES that a patterna' });
 });
 
 app.get("/pattern-builder", (req, res) => {

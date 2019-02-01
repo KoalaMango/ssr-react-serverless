@@ -14,11 +14,11 @@ export const createPattern = (pattern) => {
     if (pattern.scss) {
       fs.writeFile(`${path}/${filename}.scss`, pattern.scss, () => {});
     }
-
     Object.keys(engines).forEach((engine) => {
       const extension = engines[engine].getExtension();
-      const contents = (engines[engine]).parse(pattern.h_markup);
-      fs.writeFile(`${path}/${filename}.${extension}`, contents, () => {});
+      const contents = engines[engine].parse(pattern);
+      const templateName = engines[engine].getFileName(pattern.name);
+      fs.writeFile(`${path}/${templateName}.${extension}`, contents, () => {});
     });
   }
 };

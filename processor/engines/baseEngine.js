@@ -1,3 +1,5 @@
+import slugify from "slugify";
+
 const baseEngine = {
   getPlaceholders: (template) => {
     const pattern = /{{(.*?)}}/g;
@@ -13,6 +15,9 @@ const baseEngine = {
     });
 
     return newTemplate;
+  },
+  getFileName: (name) => {
+    return slugify(name.toLowerCase(), '_');
   }
 };
 
