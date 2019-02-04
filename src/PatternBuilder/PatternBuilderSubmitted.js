@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PatternBuilderSubmitted = (props) => {
-    const link = <a href={props.prLink}>props.prLink</a>;
+    const link = <a href={props.prLink}>{props.prLink}</a>;
   return (
       <div>
         <h1>Successfully submitted</h1>
