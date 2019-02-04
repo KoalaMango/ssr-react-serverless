@@ -372,7 +372,7 @@ const handleSubmission = (() => {
 
       try {
         const pr = yield repo.createPullRequest(pull);
-        return pr.html_url;
+        return pr.data.html_url;
       } catch (e) {
         throw new Error(e);
       }
@@ -677,7 +677,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const PatternBuilderSubmitted = props => {
   const link = _react.default.createElement("a", {
     href: props.prLink
-  }, "props.prLink");
+  }, props.prLink);
 
   return _react.default.createElement("div", null, _react.default.createElement("h1", null, "Successfully submitted"), _react.default.createElement("p", null, "Thank you for your contribution. We will examine your submission and notify you if it satisfies our standards."), _react.default.createElement("p", null, "Have a nice day UI/design/web design/sorta JS/Sorta CSS person :)"), _react.default.createElement("p", null, "You can view your PR here ", link));
 };

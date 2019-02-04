@@ -24,7 +24,7 @@ export const handleSubmission = async (pattern) => {
     };
     try {
       const pr = await repo.createPullRequest(pull);
-      return pr.html_url;
+      return pr.data.html_url;
     } catch (e) {
       throw new Error(e);
     }
