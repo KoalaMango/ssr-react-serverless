@@ -7,8 +7,6 @@ export const handleSubmission = async (pattern) => {
 
   // basic auth
   const gh = new GitHub({
-    // username: 'StrikoMirko',
-    // password: 'tetak21',
     token: '6867ae0b14e7c2d7dcb1fd4a554f7003adda1abf'
   });
   const repo = gh.getRepo('KoalaMango', 'ssr-react-serverless');
