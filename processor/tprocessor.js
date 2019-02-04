@@ -4,6 +4,11 @@ import engines from './engines';
 
 export const createPattern = async (pattern) => {
   // Create dir if it does not exist.
+  // First check if the patterns directory does not exist then create it.
+  // This will be executed for the first pattern only.
+  if (!fs.existsSync('./patterns')) {
+    await fs.mkdirSync('./patterns');
+  }
   const filename = slugify(pattern.name.toLowerCase(), '_');
   const path = `./patterns/${filename}`;
   if (!fs.existsSync(path)){
