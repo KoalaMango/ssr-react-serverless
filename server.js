@@ -39,7 +39,6 @@ app.get("/", (req, res) => {
     const html = renderToString(<MegaMenu menu={menuData} />);
     res.send(markup.replace("<!--App-->", html));
   });
-  handleSubmission({ name: 'Somes NAMES that a patterna' });
 });
 
 app.get("/pattern-builder", (req, res) => {
@@ -47,9 +46,10 @@ app.get("/pattern-builder", (req, res) => {
   res.send(markup.replace("<!--App-->", html));
 });
 
-app.post("/pattern-submitted", (req, res) => {
-  createPattern(req.body);
-  const html = renderToString(<PatternBuilderSubmitted />);
+app.post("/pattern-submitted", async (req, res) => {
+  await createPattern(req.body);
+  const result = await handleSubmission(req.body);
+  const html = renderToString(<PatternBuilderSubmitted prLink={result} />);
   res.send(markup.replace("<!--App-->", html));
 });
 

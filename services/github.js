@@ -1,5 +1,6 @@
 import GitHub from "github-api";
 import slugify from "slugify";
+import shell from 'shelljs';
 
 export const handleSubmission = async (pattern) => {
   const barnchName = `feature/${slugify(pattern.name.toLowerCase(), '_')}`;
@@ -12,10 +13,20 @@ export const handleSubmission = async (pattern) => {
   });
   const repo = gh.getRepo('KoalaMango', 'ssr-react-serverless');
   const allBranches = await repo.listBranches();
-  console.log(allBranches.data);
   const branchExists = allBranches.data.filter(b => b.name === barnchName).length !== 0;
   if (!branchExists) {
-    const branch = await repo.createBranch('master', barnchName);
+    await shell.exec(`./services/github.sh ${barnchName}`)
+    const pull = {
+      title: pattern.name,
+      body: `Pull request for pattern ${barnchName}`,
+      base: 'master',
+      head: barnchName,
+    };
+    try {
+      const pr = await repo.createPullRequest(pull);
+      return pr.html_url;
+    } catch (e) {
+      throw new Error(e);
+    }
   }
-  // const branch = repo.createBranch('master', barnchName);
 };
