@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Create a new branch and push to origin
+git checkout master
 git checkout -b $1
 git add patterns/
 git commit -m "New pattern introduced - $1"
